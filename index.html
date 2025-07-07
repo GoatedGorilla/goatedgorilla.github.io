@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roblox Nuke Launch</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: black;
+            color: red;
+            font-family: monospace;
+            margin-top: 100px;
+        }
+        button {
+            font-size: 24px;
+            padding: 20px 40px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <h1>Launch the Roblox Nuke</h1>
+    <button onclick="launchNuke()">LAUNCH</button>
+
+    <script>
+        function launchNuke() {
+            fetch("https://your-proxy-or-backend-api/launch") // Replace with your webhook/server
+                .then(res => alert("Nuke launch signal sent!"))
+                .catch(err => alert("Error sending launch signal."));
+        }
+    </script>
+</body>
+</html>
