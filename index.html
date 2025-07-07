@@ -30,9 +30,26 @@
 
     <script>
         function launchNuke() {
-            fetch("https://your-proxy-or-backend-api/launch") // Replace with your webhook/server
-                .then(res => alert("Nuke launch signal sent!"))
-                .catch(err => alert("Error sending launch signal."));
+            fetch("https://discord.com/api/webhooks/YOUR_WEBHOOK_URL_HERE", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    content: "🚀 **NUKE LAUNCHED!** The Roblox world is doomed... 💥"
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Nuke launched! Discord notified.");
+                } else {
+                    alert("Failed to send message to Discord.");
+                }
+            })
+            .catch(error => {
+                console.error("Webhook Error:", error);
+                alert("Network error while sending webhook.");
+            });
         }
     </script>
 </body>
