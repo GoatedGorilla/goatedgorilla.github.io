@@ -1,97 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Roblox Nuke Launch</title>
-    <style>
-        body {
-            text-align: center;
-            background-color: black;
-            color: red;
-            font-family: monospace;
-            margin-top: 100px;
-        }
-        button {
-            font-size: 24px;
-            padding: 20px 40px;
-            background-color: red;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-        button:hover {
-            background-color: darkred;
-        }
-    </style>
-</head>
-<body>
-    <h1>Launch the Roblox Nuke</h1>
-    <button onclick="launchNuke()">LAUNCH</button>
+<button id="triggerBtn">Trigger Unity</button>
 
-    <script>
-        function launchNuke() {
-            fetch("<!DOCTYPE html>
-<html>
-<head>
-    <title>Roblox Nuke Launch</title>
-    <style>
-        body {
-            text-align: center;
-            background-color: black;
-            color: red;
-            font-family: monospace;
-            margin-top: 100px;
-        }
-        button {
-            font-size: 24px;
-            padding: 20px 40px;
-            background-color: red;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-        button:hover {
-            background-color: darkred;
-        }
-    </style>
-</head>
-<body>
-    <h1>Launch the Roblox Nuke</h1>
-    <button onclick="launchNuke()">LAUNCH</button>
-
-   <script>
-function launchNuke() {
-    fetch("https://unequaledhelpfuldatabase.lukemikewilson.repl.co/launch", {
-        method: "POST"
-    })
-    .then(() => alert("Nuke launched! Discord notified."))
-    .catch(() => alert("Failed to contact Replit webhook server."));
-}
+<script>
+document.getElementById("triggerBtn").addEventListener("click", () => {
+    fetch("http://YOUR_PUBLIC_IP:8080/trigger")
+        .then(res => res.text())
+        .then(text => alert(text))
+        .catch(err => alert("Failed to contact Unity game: " + err));
+});
 </script>
-
-</body>
-</html>", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    content: "🚀 **NUKE LAUNCHED!** The Roblox world is doomed... 💥"
-                })
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert("Nuke launched! Discord notified.");
-                } else {
-                    alert("Failed to send message to Discord.");
-                }
-            })
-            .catch(error => {
-                console.error("Webhook Error:", error);
-                alert("Network error while sending webhook.");
-            });
-        }
-    </script>
-</body>
-</html>
