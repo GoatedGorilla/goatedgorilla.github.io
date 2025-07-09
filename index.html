@@ -1,16 +1,29 @@
-const webhookUrl = 'https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN';
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Discord Webhook Trigger</title>
+</head>
+<body>
+  <button id="triggerBtn">Trigger Unity Action</button>
 
-function sendDiscordWebhook() {
-  fetch(webhookUrl, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ content: 'buttonPressed' })
-  })
-  .then(response => {
-    if (response.ok) alert('Triggered Discord webhook!');
-    else alert('Failed to trigger webhook.');
-  })
-  .catch(console.error);
-}
+  <script>
+    const webhookUrl = 'https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN';
 
-document.getElementById('triggerBtn').onclick = sendDiscordWebhook;
+    document.getElementById('triggerBtn').onclick = () => {
+      fetch(webhookUrl, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ content: 'buttonPressed' })
+      })
+      .then(response => {
+        if (response.ok) {
+          alert('Triggered Discord webhook!');
+        } else {
+          alert('Failed to trigger webhook.');
+        }
+      })
+      .catch(error => alert('Error: ' + error));
+    };
+  </script>
+</body>
+</html>
